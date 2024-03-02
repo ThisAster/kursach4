@@ -103,7 +103,7 @@ class ProfileState extends State<Profile> {
             const SizedBox(width: 20, height: 20,),
             ElevatedButton(
               onPressed: () async {
-                request("UPDATE users SET name = '$_firstName', surname = '$_lastName', image_url = '$_profileImageUrl' WHERE id = $_userId");
+                request("SELECT update_user($_userId, '$_firstName', '$_lastName', '$_profileImageUrl')");
                 SharedPreferences prefs =
                           await SharedPreferences.getInstance();
                 setState(() {
